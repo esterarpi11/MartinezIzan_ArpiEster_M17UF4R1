@@ -13,6 +13,7 @@ public class MainPlayer : MonoBehaviour
     public MeshFilter itemPlacement;
     public GameObject itemPositon;
     public bool isGrounded = true;
+    public float rotationSpeed = 50f;
 
     public void setPlayer(float x, float y, float z, float health)
     {
@@ -53,7 +54,8 @@ public class MainPlayer : MonoBehaviour
     }
     public void HandleRotation(Vector2 direction)
     {
-        _transform.Rotate(new Vector3(0, direction.x * 30, 0));
+        float rotationAmount = direction.x * rotationSpeed * Time.deltaTime;
+        _transform.Rotate(new Vector3(0, rotationAmount, 0));
     }
     public void HandleMovement(Vector2 direction)
     {
